@@ -33,6 +33,7 @@ body {
 
   @include mediaTablet {
     min-height: 100dvh;
+    height: 100dvh;
   }
 }
 
