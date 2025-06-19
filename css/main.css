@@ -134,6 +134,11 @@ body::before {
   background-size: cover;
   z-index: -1;
 }
+@media screen and (max-width: 942px) {
+  body {
+    min-height: 100dvh;
+  }
+}
 
 #map {
   position: absolute;

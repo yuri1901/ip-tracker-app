@@ -30,6 +30,10 @@ body {
 
     z-index: -1;
   }
+
+  @include mediaTablet {
+    min-height: 100dvh;
+  }
 }
 
 #map {
