@@ -1,10 +1,11 @@
-const searchTrackerBtn = document.querySelector("button[type='button']");
-const searchTrackerInput = document.querySelector("input[type='text']");
-
-const address = document.querySelector(".address > p");
-const loc = document.querySelector(".location > p");
-const tmz = document.querySelector(".timezone > p");
-const isp = document.querySelector(".isp > p");
+import {
+  searchTrackerBtn,
+  searchTrackerInput,
+  ipAddressField,
+  locationField,
+  timezoneField,
+  ispField,
+} from "./vars.js";
 
 const fetchIpData = async () => {
   const ipapi = `https://ipapi.co/${searchTrackerInput.value}/json/`;
@@ -14,7 +15,6 @@ const fetchIpData = async () => {
     if (!response.ok) {
       throw new Error("Error fetching");
     }
-
     const data = await response.json();
     const { ip, city, country, postal, timezone, org, latitude, longitude } =
       data;
@@ -27,7 +27,7 @@ const fetchIpData = async () => {
 };
 
 let map = null;
-function renderMap(latitude, longitude) {
+const renderMap = (latitude, longitude) => {
   if (map !== null) {
     map.remove();
   }
@@ -52,14 +52,14 @@ function renderMap(latitude, longitude) {
   });
 
   L.marker([latitude, longitude], { icon: myIcon }).addTo(map);
-}
+};
 
-function updateUI(ip, city, country, postal, timezone, org) {
-  address.textContent = ip;
-  loc.textContent = `${city}, ${country} ${postal}`;
-  tmz.textContent = timezone;
-  isp.textContent = org;
-}
+const updateUI = (ip, city, country, postal, timezone, org) => {
+  ipAddressField.textContent = ip;
+  locationField.textContent = `${city}, ${country} ${postal}`;
+  timezoneField.textContent = timezone;
+  ispField.textContent = org;
+};
 
 fetchIpData();
 searchTrackerBtn.addEventListener("click", fetchIpData);

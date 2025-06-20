@@ -1,6 +1,10 @@
 .form {
   width: 100%;
   max-width: 550px;
+
+  & > span {
+    visibility: hidden;
+  }
 }
 .label {
   width: 100%;

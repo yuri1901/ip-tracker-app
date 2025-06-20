@@ -43,3 +43,9 @@ body {
   width: 100%;
   height: 70%;
 }
+
+.form > span.error-message {
+  visibility: visible;
+  display: block;
+  color: red;
+}

@@ -148,6 +148,12 @@ body::before {
   height: 70%;
 }
 
+.form > span.error-message {
+  visibility: visible;
+  display: block;
+  color: red;
+}
+
 .header {
   font-weight: 500;
   font-size: 32px;
@@ -164,6 +170,9 @@ body::before {
 .form {
   width: 100%;
   max-width: 550px;
+}
+.form > span {
+  visibility: hidden;
 }
 
 .label {
