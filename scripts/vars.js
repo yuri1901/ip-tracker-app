@@ -7,6 +7,14 @@ const locationField = document.querySelector(".location > p");
 const timezoneField = document.querySelector(".timezone > p");
 const ispField = document.querySelector(".isp > p");
 
+const loader = document.querySelector(".loader-inner");
+
+const showLoader = () => {
+  loader.style.display = "flex";
+};
+const hideLoader = () => {
+  loader.style.display = "none";
+};
 
 export {
   errorMessage,
@@ -16,4 +24,7 @@ export {
   locationField,
   timezoneField,
   ispField,
+  loader,
+  showLoader,
+  hideLoader,
 };

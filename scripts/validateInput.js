@@ -1,7 +1,8 @@
 import { errorMessage, searchTrackerInput, searchTrackerBtn } from "./vars.js";
 const validateIpInput = (e) => {
-  const regexp = /^[0-9.]+$/gi;
-  const curr = e.target.value;
+  const regexp =
+    /^(?:(?:\d{1,3}\.){3}\d{1,3}|(?:[a-zA-Z0-9-]+\.)+[a-zA-Z]{2,})$/;
+  const curr = e.target.value.trim();
 
   if (!regexp.test(curr) && curr !== "") {
     errorMessage.classList.add("error-message");
@@ -13,6 +14,3 @@ const validateIpInput = (e) => {
 };
 
 searchTrackerInput.addEventListener("input", validateIpInput);
-searchTrackerBtn.addEventListener("click", () => {
-  console.log("good");
-});
